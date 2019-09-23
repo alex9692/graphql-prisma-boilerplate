@@ -1,0 +1,58 @@
+{
+	"name": "graph-ql-nodejs",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node dist/index.js",
+		"heroku-postbuild": "babel src  --out-dir dist --copy-files",
+		"dev": "env-cmd -f ./config/dev.env nodemon src/index.js  --ext js,graphql --exec babel-node",
+		"test": "env-cmd -f ./config/test.env jest --watch --runInBand",
+		"get-schema": "graphql get-schema -p prisma --dotenv config/dev.env"
+	},
+	"jest": {
+		"globalSetup": "./test/jest/globalSetup.js",
+		"globalTeardown": "./test/jest/globalTeardown.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alex9692/graphql.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/alex9692/graphql/issues"
+	},
+	"homepage": "https://github.com/alex9692/graphql#readme",
+	"dependencies": {
+		"@babel/runtime-corejs2": "^7.6.0",
+		"apollo-boost": "^0.4.4",
+		"apollo-cache-inmemory": "^1.2.10",
+		"apollo-client": "^2.4.2",
+		"apollo-link": "^1.2.3",
+		"apollo-link-error": "^1.1.1",
+		"apollo-link-http": "^1.5.5",
+		"apollo-link-ws": "^1.0.9",
+		"apollo-utilities": "^1.0.21",
+		"bcryptjs": "^2.4.3",
+		"cross-fetch": "^3.0.4",
+		"env-cmd": "^10.0.1",
+		"graphql": "^14.5.7",
+		"graphql-cli": "^3.0.14",
+		"graphql-yoga": "^1.18.3",
+		"jsonwebtoken": "^8.5.1",
+		"prisma-binding": "^2.3.16",
+		"subscriptions-transport-ws": "^0.9.15"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.6.0",
+		"@babel/core": "^7.6.0",
+		"@babel/node": "^7.6.1",
+		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+		"@babel/plugin-transform-runtime": "^7.6.0",
+		"@babel/polyfill": "^7.6.0",
+		"@babel/preset-env": "^7.6.0",
+		"@babel/register": "^7.6.0",
+		"jest": "^24.9.0"
+	}
+}
